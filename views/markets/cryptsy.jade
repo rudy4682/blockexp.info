@@ -1,13 +1,63 @@
 extends menu
 
 block market_view
+  script.
+    $(document).ready(function(){
+      $('#summary-panel').hide();
+      var ohlc = !{marketdata.data.chartdata}
+      var plot2 = $.jqplot('chart',[ohlc],{
+        seriesDefaults:{yaxis:'y2axis'},
+        axes: {
+          xaxis: {
+            renderer:$.jqplot.DateAxisRenderer,
+            tickOptions:{formatString:'%R'},
+            tickInterval: "100 minutes",
+            
+          },
+          y2axis: {
+            tickOptions:{formatString:'%.8f'},
+          }
+        },
+        // To make a candle stick chart, set the "candleStick" option to true.
+        series: [
+          {
+            renderer:$.jqplot.OHLCRenderer,
+            rendererOptions:{ candleStick:true }
+          }
+        ],
+        highlighter: {
+          show: true,
+          showMarker:false,
+          tooltipAxes: 'xy',
+          yvalues: 8,
+          formatString:'<table class="jqplot-highlighter"> \
+          <tr><td>time:</td><td>%s</td></tr> \
+          <tr><td>open:</td><td>%s</td></tr> \
+          <tr><td>hi:</td><td>%s</td></tr> \
+          <tr><td>low:</td><td>%s</td></tr> \
+          <tr><td>close:</td><td>%s</td></tr> \
+          <tr><td>volume:</td><td>%s</td></tr> \
+          <tr><td>Date2:</td><td>%s</td></tr></table>'
+        }
+      }); 
+      $(window).resize(function () { 
+        plot2.replot( { resetAxes: false } );
+      });
+    });           
   .row
-    .col-md-12  
-      .panel.panel-default
+    .hidden-xs.col-md-12  
+      #chart-panel.panel.panel-default
         .panel-heading
-          strong #{settings.locale.cryptsy} - #{marketdata.coin}/#{marketdata.exchange} - #{settings.locale.mkt_hours}
+          strong #{settings.locale.cryptsy}} - #{marketdata.coin}/#{marketdata.exchange} - #{settings.locale.mkt_hours}
           a(href='#')
-            span.fa.fa-line-chart.pull-right.view-chart-disabled.iquidus.market-toggle(data-toggle='tooltip', data-placement='bottom', title='#{settings.locale.mkt_no_chart}') 
+            span.fa.fa-th-list.pull-right.view-summary.iquidus.market-toggle(data-toggle='tooltip', data-placement='bottom', title='#{settings.locale.mkt_view_summary}') 
+        .panel-body
+          div#chart(style="width:100%;height:300px;")
+      #summary-panel.panel.panel-default
+        .panel-heading
+          strong #{settings.locale.cryptsy}} - #{marketdata.coin}/#{marketdata.exchange} - #{settings.locale.mkt_hours}
+          a(href='#')
+            span.fa.fa-line-chart.pull-right.view-chart.iquidus.market-toggle(data-toggle='tooltip', data-placement='bottom', title='#{settings.locale.mkt_view_chart}') 
         table.table.table-bordered.summary-table 
           thead
             tr
@@ -42,9 +92,10 @@ block market_view
                 td
                   =buy.price
                 td
-                  =buy.amount.toFixed(8)
+                  =buy.amount
                 td.hidden-xs
                   =buy.total
+
     .col-md-6.col-xs-12
       .panel.panel-default
         .panel-heading
@@ -61,7 +112,7 @@ block market_view
                 td
                   =sell.price
                 td
-                  =sell.amount.toFixed(8)
+                  =sell.amount
                 td.hidden-xs
                   =sell.total
   .row   
