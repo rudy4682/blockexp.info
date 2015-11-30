@@ -27,6 +27,7 @@ html
           $.ajax({url: '/ext/summary', success: function(json){
             $("#supply").text(json.data[0].supply);
             $("#difficulty").text(json.data[0].difficulty);
+            $("#difficultyHybrid").text(json.data[0].difficultyHybrid);
             $("#hashrate").text(json.data[0].hashrate);
             $("#lastPrice").text(json.data[0].lastPrice.toFixed(8));
             $("#lblConnections").text(json.data[0].connections + ' connections');
@@ -142,7 +143,7 @@ html
                   a.navbar-link(href='/info')
                     span.glyphicon.glyphicon-info-sign
                     span.menu-text #{settings.locale.menu_api}
-    .col-md-12
+     .col-md-12
       .row.text-center
         .col-md-2.col-md-offset-1
           .panel.panel-default.hidden-sm.hidden-xs
@@ -160,13 +161,23 @@ html
               else if settings.nethash_units == 'H'
                 strong #{settings.locale.network} (H/s)
             .panel-body
-              label#hashrate -
+              if settings.index.difficulty == 'Hybrid'
+               label#hashrate - 
+               <br>
+               label#lblX1  
+              else  
+               label#hashrate - 
         .col-md-2
           .panel.panel-default.hidden-sm.hidden-xs
             .panel-heading
               strong #{settings.locale.difficulty}
             .panel-body
-              label#difficulty -
+              if settings.index.difficulty == 'Hybrid'
+               label#difficulty -
+               <br>
+               label#difficultyHybrid -
+              else
+               label#difficulty -
         .col-md-2.col-sm-12
           img(src='#{settings.logo}', style='margin-top:-15px;height:128px;')
         .col-md-2
