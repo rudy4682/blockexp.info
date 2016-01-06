@@ -116,14 +116,15 @@
     "mkt_time_stamp": "Time Stamp",
 
     // Markets
-    "poloniex": "Poloniex",
     "bittrex": "Bittrex",
     "bleutrade": "Bleutrade",
-    "yobit": "Yobit",
-    "empoex": "Empoex",
+    "btce": "BTC-e",
+    "ccex": "C-Cex",
     "cryptsy": "Cryptsy",
     "cryptopia": "Cryptopia",
-    "ccex": "C-Cex",
+    "empoex": "Empoex",
+    "poloniex": "Poloniex",
+    "yobit": "Yobit",
 
     // Heavy rewards view
     "heavy_title": "Reward/voting information",
