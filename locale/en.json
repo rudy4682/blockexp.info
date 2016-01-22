@@ -108,6 +108,8 @@
     "mkt_change": "Change",
     "mkt_sell_orders": "Sell Orders",
     "mkt_buy_orders": "Buy Orders",
+    "mkt_sell": "Sell",
+    "mkt_buy": "Buy",
     "mkt_price": "Price",
     "mkt_amount": "Amount",
     "mkt_total": "Total",
