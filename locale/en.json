@@ -118,6 +118,7 @@
     "mkt_time_stamp": "Time Stamp",
 
     // Markets
+    "alcurex": "alcurEX",
     "bittrex": "Bittrex",
     "bleutrade": "Bleutrade",
     "btce": "BTC-e",
@@ -139,5 +140,5 @@
     "heavy_estnext": "Est. Next",
     "heavy_changein": "Reward change in approximately",
     "heavy_key": "Key",
-    "heavy_lastxvotes": "Last 20 votes",
+    "heavy_lastxvotes": "Last 20 votes"
 }
