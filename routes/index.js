@@ -127,6 +127,25 @@ router.get('/markets/:market', function(req, res) {
     route_get_index(res, null);
   }
 });
+router.get('/nodes', function (req, res) {
+    if (settings.display.nodes == true) {
+        db.get_stats(settings.coin, function (stats) {
+            if (stats) {
+                res.render('nodes', {
+                    active: 'nodes', 
+                    stats: stats,
+                    show_outbound: settings.nodelist.outbound,
+                    show_inbound: settings.nodelist.inbound,
+                    show_private: settings.nodelist.private
+                });
+            } else {
+                route_get_index(res, null);
+            }
+        });
+    } else {
+        route_get_index(res, null);
+    }
+});
 
 router.get('/richlist', function(req, res) {
   if (settings.display.richlist == true ) {  

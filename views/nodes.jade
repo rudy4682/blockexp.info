@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .row
+    .col-md-12  
+      .panel.panel-default
+        .panel-heading
+          strong #{settings.locale.nodes_title}
+          a(href='#') 
+        table.table.table-bordered.summary-table 
+          thead
+            tr
+              th #{settings.locale.nodes_addr} #{settings.locale.nodes_port}
+              th #{settings.locale.nodes_contype}
+              th.hidden-xs #{settings.locale.nodes_bsent} <br /> #{settings.locale.nodes_brecv}
+              th.hidden-xs #{settings.locale.nodes_lastsend} <br /> #{settings.locale.nodes_lastrecv}
+              th.hidden-xs #{settings.locale.nodes_conntime}
+              th.hidden-xs #{settings.locale.nodes_sheight}
+              th.hidden-xs #{settings.locale.nodes_identity} <br /> #{settings.locale.nodes_protocol}
+              th.hidden-xs #{settings.locale.nodes_private}
+          tbody
+           each node in stats.nodes
+            tr
+              td #{node.addr}:#{node.port}
+              if node.inbound
+               td #{settings.locale.nodes_inbound}
+              else
+               td #{settings.locale.nodes_outbound}
+              td.hidden-xs #{node.sizesent}<br /> #{node.sizerecv}
+              td.hidden-xs #{node.lastsendET}<br /> #{node.lastrecvET}
+              td.hidden-xs
+                =(new Date(node.conntime * 1000).toUTCString())
+              td.hidden-xs #{node.startingheight}
+              td.hidden-xs #{node.subver} <br /> #{node.version}
+              td.hidden-xs #{node.ipprivate}
+  .row
+       .footer-padding
+

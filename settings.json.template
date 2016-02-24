@@ -94,6 +94,13 @@
     "default": "bittrex"
   },
 
+// nodes view
+    "nodelist": {
+        "outbound": true,
+        "inbound": true,
+        "private": true
+    },
+
   // richlist/top100 settings
   "richlist": {
     "distribution": true,
