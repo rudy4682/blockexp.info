@@ -129,6 +129,7 @@
   // GETINFO : retreive from getinfo api call (PoS)
   // HEAVY: retreive from heavys getsupply api call
   // BALANCES : total of all address balances
+  // GETCOINSUPPLY: retreive from getsupply api call
   "supply": "BALANCES",
 
   // how to acquire network hashrate
