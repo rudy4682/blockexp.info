@@ -4,11 +4,11 @@ block content
   script.
     $(document).ready(function(){
       var data = [
-      ['Top 1-25', !{dista.percent}],['Top 26-50', !{distb.percent}],['Top 51-75', !{distc.percent}],['Top 76-100', !{distd.percent}],['101+', !{diste.percent}]
+      ['Top 1-25', !{dista.percent}],['Top 26-50', !{distb.percent}],['Top 51-75', !{distc.percent}],['Top 76-100', !{distd.percent}],['Top 101-125', !{diste.percent}],['Top 126-150', !{distf.percent}],['Top 151-175', !{distg.percent}],['Top 176-200', !{disth.percent}],['201+', !{disti.percent}]
       ];
       var pieWealthDist = $.jqplot('pieChart', [data],
         {
-          seriesColors: [ "#d9534f", "#5cb85c", "#428bca", "#222", "#CCC"],
+          seriesColors: [ "#d9534f", "#5cb85c", "#428bca", "#800000", "990099", "#00FF00", "#00FFFF", "#FFFF00", "#808080"],
           series: [{
             // Make this a pie chart.
             renderer: $.jqplot.PieRenderer,
@@ -18,7 +18,7 @@ block content
               sliceMargin: 4, 
               // Put data labels on the pie slices.
               // By default, labels show the percentage of the slice.
-              showDataLabels: false,
+              showDataLabels: true,
             }
           }],
           grid: {borderWidth:0, shadow:false},
@@ -80,15 +80,39 @@ block content
               td.text-center #{parseFloat(distc.percent).toFixed(2)}
             tr
               th
-                div.pull-left(style='background-color:#222;width:20px;height:20px;margin-right:6px;')
+                div.pull-left(style='background-color:#800000;width:20px;height:20px;margin-right:6px;')
                 span #{settings.locale.rl_top100}
               td #{parseFloat(distd.total).toFixed(8)}
               td.text-center #{parseFloat(distd.percent).toFixed(2)}
             tr
               th
+                div.pull-left(style='background-color:#990099;width:20px;height:20px;margin-right:6px;')
+                span #{settings.locale.rl_top125}
+              td #{parseFloat(diste.total).toFixed(8)}
+              td.text-center #{parseFloat(diste.percent).toFixed(2)}
+            tr
+              th
+                div.pull-left(style='background-color:#00FF00;width:20px;height:20px;margin-right:6px;')
+                span #{settings.locale.rl_top150}
+              td #{parseFloat(distf.total).toFixed(8)}
+              td.text-center #{parseFloat(distf.percent).toFixed(2)}
+            tr
+              th
+                div.pull-left(style='background-color:#00FFFF;width:20px;height:20px;margin-right:6px;')
+                span #{settings.locale.rl_top175}
+              td #{parseFloat(distg.total).toFixed(8)}
+              td.text-center #{parseFloat(distg.percent).toFixed(2)}
+            tr
+              th
+                div.pull-left(style='background-color:#FFFF00;width:20px;height:20px;margin-right:6px;')
+                span #{settings.locale.rl_top200}
+              td #{parseFloat(disth.total).toFixed(8)}
+              td.text-center #{parseFloat(disth.percent).toFixed(2)}
+            tr
+              th
                 span #{settings.locale.total}
               td 
-              td.text-center #{(100 - parseFloat(distd.percent)).toFixed(2)}
+              td.text-center #{(100 - parseFloat(disti.percent)).toFixed(2)}
       center
         div#pieChart(style="width:300px;height:305px;margin:0px;")
   .row.footer-margin

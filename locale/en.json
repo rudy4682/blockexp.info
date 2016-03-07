@@ -8,7 +8,7 @@
     "menu_explorer": "Explorer",
     "menu_api": "API",
     "menu_markets": "Markets",
-    "menu_richlist": "Top 100",
+    "menu_richlist": "Rich List",
     "menu_reward": "Reward",
     "menu_node": "Nodes",
 
@@ -62,8 +62,8 @@
     "a_menu_all": "All",
 
     //richlist
-    "rl_received_coins": "Top 100 - Received Coins",
-    "rl_current_balance": "Top 100 - Current Balance",
+    "rl_received_coins": "Top 200 - Received Coins",
+    "rl_current_balance": "Top 200 - Current Balance",
     "rl_received": "Received",
     "rl_balance": "Balance",
     "rl_wealth": "Wealth Distribution",
@@ -71,8 +71,13 @@
     "rl_top50": "Top 26-50",
     "rl_top75": "Top 51-75",
     "rl_top100": "Top 76-100",
+    "rl_top125": "Top 101-125",
+    "rl_top150": "Top 126-150",
+    "rl_top175": "Top 151-175",
+    "rl_top200": "Top 176-200",
     "rl_hundredplus": "101+",
-    
+    "rl_2hundredplus": "201+", 
+
     // nodes view
     "nodes_title": "Active Nodes",
     "nodes_titleCons": "Add Nodes Console",
