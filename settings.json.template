@@ -62,6 +62,7 @@
   "display": {
     "api": true,
     "markets": true,
+    "nodes": true,
     "richlist": true,
     "twitter": true,
     "search": true
