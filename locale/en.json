@@ -139,11 +139,13 @@
     "mkt_sell": "Sell",
     "mkt_buy": "Buy",
     "mkt_price": "Price",
+    "mkt_24h_avg": "24 Hour Average",
     "mkt_amount": "Amount",
     "mkt_total": "Total",
     "mkt_trade_history": "Trade History",
     "mkt_type": "Type",
     "mkt_time_stamp": "Time Stamp",
+    "mkt_time_lupdate": "Last Update",
 
     // Markets
     "alcurex": "alcurEX",

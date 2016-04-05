@@ -11,15 +11,23 @@ block market_view
         table.table.table-bordered.summary-table 
           thead
             tr
+              th #{settings.locale.mkt_time_lupdate}
               th #{settings.locale.mkt_high}
               th #{settings.locale.mkt_low}
+              th #{settings.locale.mkt_24h_avg}
+              th #{settings.locale.mkt_volume} (#{marketdata.coin})
+              th #{settings.locale.mkt_volume} (#{marketdata.exchange})
               th.hidden-xs #{settings.locale.mkt_top_bid}
               th.hidden-xs #{settings.locale.mkt_top_ask}
               th.hidden-xs #{settings.locale.mkt_last}
           tbody
             tr
+              td #{format_unixtime(marketdata.data.summary.updated)}
               td #{marketdata.data.summary.high}
               td #{marketdata.data.summary.low}
+              td #{marketdata.data.summary.avg}
+              td #{marketdata.data.summary.vol_cur}
+              td #{marketdata.data.summary.vol}
               td.hidden-xs #{marketdata.data.summary.buy}
               td.hidden-xs #{marketdata.data.summary.sell}
               td.hidden-xs #{marketdata.data.summary.last}
